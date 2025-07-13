@@ -222,7 +222,3 @@ If you encounter issues:
 - [Python Requests Documentation](https://docs.python-requests.org/)
 
 ---
-
-**Made with ❤️ for the AI community**
-
-*Power up your AI conversations with Nexus AI! 🔥✨*
