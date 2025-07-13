@@ -7,7 +7,7 @@ from datetime import datetime
 from dotenv import load_dotenv, set_key
 
 
-class NexusAI:
+class CLIA:
     def __init__(self):
         self.api_key = None
         self.env_file = ".env"
@@ -63,7 +63,7 @@ class NexusAI:
         try:
             if not os.path.exists(self.env_file):
                 with open(self.env_file, 'w') as f:
-                    f.write("# Nexus AI Environment Variables\n")
+                    f.write("# CLIA - Command Line Intelligent Assistant Environment Variables\n")
 
             set_key(self.env_file, 'TOGETHER_API_KEY', self.api_key)
             print("💾 API key saved to .env file!")
@@ -237,7 +237,8 @@ class NexusAI:
 
         current_model = self.get_current_model_name()
         emoji = self.get_current_model_emoji()
-        print(f"\n🔥 NEXUS AI - Connecting {emoji} {current_model}")
+        print(f"\n🔥 CLIA - Command Line Intelligent Assistant")
+        print(f"Connecting to {emoji} {current_model}")
         print("Commands: 'models', 'change [1-6]', 'stats', 'save', 'clear', 'help', 'quit'")
         print("=" * 60)
 
@@ -320,17 +321,17 @@ class NexusAI:
 
 
 def main():
-    bot = NexusAI()
+    bot = CLIA()
 
     parser = argparse.ArgumentParser(
-        description="🔥 Nexus AI - Advanced AI CLI Assistant with Multi-Model Switching",
+        description="🔥 CLIA - Command Line Intelligent Assistant with Multi-Model Switching",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 🚀 Examples:
-  python nexus_ai.py                         # Start interactive chat
-  python nexus_ai.py -p "Hello world"        # Single prompt mode
-  python nexus_ai.py -m 2 -p "Hello"         # Use specific model
-  python nexus_ai.py --list-models           # Show all available models
+  python ai.py                         # Start interactive chat
+  python ai.py -p "Hello world"        # Single prompt mode
+  python ai.py -m 2 -p "Hello"         # Use specific model
+  python ai.py --list-models           # Show all available models
         """
     )
     parser.add_argument("-p", "--prompt", help="Single prompt mode")
