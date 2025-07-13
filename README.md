@@ -1,4 +1,4 @@
-# 🔥 Nexus AI
+# 🔥 CLIA - Command Line Intelligent Assistant
 
 An intelligent command-line AI assistant with advanced multi-model switching capabilities, built for seamless interaction with multiple AI models through the Together AI API.
 
