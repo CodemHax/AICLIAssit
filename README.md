@@ -73,7 +73,7 @@ python ai.py --list-models
 |---|-------|-------|-------------|
 | 1 | **DeepSeek R1** | 🧠 | Advanced reasoning and problem-solving |
 | 2 | **Llama 3.3** | 🦙 | Meta's latest open-source model |
-| 3 | **Qwen 2.5 32B** | 🌟 | Alibaba's high-performance model |
+| 3 | **Qwen3 32B FP8** | 🌟 | Alibaba's high-performance model |
 | 4 | **AFM 4.5B** | ⚡ | Fast and efficient responses |
 | 5 | **EXAONE 3.5 32B** | 🔥 | LG's advanced language model |
 | 6 | **EXAONE Deep 32B** | 💎 | Enhanced deep learning capabilities |
