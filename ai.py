@@ -148,7 +148,8 @@ class CLIA:
                 else:
                     print("Enter a valid API key")
         return self.api_key
-        
+
+    @staticmethod
     def clean_thinking_text(text):
         cleaned = re.sub(r'<think>.*?</think>', '', text, flags=re.IGNORECASE | re.DOTALL)
         cleaned = re.sub(r'<thought>.*?</thought>', '', cleaned, flags=re.IGNORECASE | re.DOTALL)
@@ -401,17 +402,17 @@ Please generate the complete, working file content:"""
         print("=" * 50)
         print("Commands:")
         print("  help             - Show this help message")
-        print("  models          - Show available models")
-        print("  switch [num]    - Switch to model number")
+        print("  models           - Show available models")
+        print("  switch [num]     - Switch to model number")
         print("  stats            - Show session statistics")
         print("  save [filename]  - Save conversation")
-        print("clear            - Clear conversation")
+        print("  clear            - Clear conversation")
         print("  write <file>     - Create file manually")
         print("  read <file>      - Read file")
-        print(" run <file>       - Run Python file")
+        print("  run <file>       - Run Python file")
         print("  list             - List workspace files")
         print("  create           - AI assisted file creation")
-        print(" reset-key        - Reset API key")
+        print("  reset-key        - Reset API key")
         print("  quit             - Exit program")
         print("=" * 50)
 
@@ -511,29 +512,40 @@ Please generate the complete, working file content:"""
 
 def main():
     client = CLIA()
-    parser = argparse.ArgumentParser(description="CLIA - Command Line Intelligent Assistant",formatter_class=argparse.RawDescriptionHelpFormatter,
-                                     epilog="""
+
+    parser = argparse.ArgumentParser(
+        description="CLIA - Command Line Intelligent Assistant",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
 Examples:
   python ai.py                   # Start interactive chat
   python ai.py -p "Hello world"  # Single prompt mode
   python ai.py -m 2 -p "Hello"   # Use specific model
   python ai.py --list-models     # List models
         """
-                                    )
+    )
     parser.add_argument("-p", "--prompt", help="Single prompt mode")
-    parser.add_argument("-m", "--model", type=int, choices=range(1, len(client.models) + 1),help=f"Select model (1-{len(client.models)})")
-    parser.add_argument("--list-models", action="store_true",help="List all available models and exit")
+    parser.add_argument("-m", "--model", type=int, choices=range(1, len(client.models) + 1),
+                       help=f"Select model (1-{len(client.models)})")
+    parser.add_argument("--list-models", action="store_true",
+                       help="List all available models and exit")
+
     args = parser.parse_args()
+
     if args.list_models:
         client.show_models()
         return
+
     if args.model:
         client.current_model = client.models[args.model - 1][1]
         model_name = client.models[args.model - 1][0]
         print(f"Using {model_name}")
+
     if args.prompt:
         client.single_prompt(args.prompt)
     else:
         client.chat()
+
+
 if __name__ == "__main__":
     main()
