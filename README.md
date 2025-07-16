@@ -1,32 +1,32 @@
 # 🤖 CLIA - Command Line Intelligent Assistant
 
-A powerful and intuitive command-line AI assistant that brings multiple AI models to your terminal. Built with Python and powered by Together AI, CLIA offers seamless interaction with cutting-edge language models through an elegant CLI interface.
+A powerful and intuitive command-line AI assistant that brings multiple state-of-the-art AI models to your terminal. Built with Python and powered by Together AI, CLIA offers seamless interaction with cutting-edge language models through an elegant CLI interface.
 
 ## ✨ Key Features
 
 ### 🔄 **Multi-Model AI Support**
-- **AI Models** including DeepSeek R1, Llama 3.3, and more
+- **6 Advanced AI Models** including DeepSeek R1, Llama 3.3, EXAONE, and more
 - **Instant model switching** with simple commands
 - **Real-time performance tracking** for each model
-- **Smart model recommendations** based on task type
+- **Smart response time monitoring** and usage analytics
 
 ### 🛠️ **Advanced Workspace Management**
-- **Integrated file operations** (read, write, execute)
-- **AI-powered file creation** with intelligent templates
-- **Workspace context awareness** for better AI responses
-- **Project file organization** in dedicated workspace
+- **Integrated file operations** (read, write, execute Python files)
+- **AI-powered file creation** with intelligent content generation
+- **Clean workspace organization** in dedicated directory
+- **Seamless file manipulation** through chat commands
 
 ### 📊 **Intelligent Session Management**
-- **Conversation persistence** with JSON export
-- **Session analytics** and usage statistics
-- **Response time monitoring**
-- **Model usage tracking** across sessions
+- **Conversation persistence** with JSON export functionality
+- **Comprehensive session analytics** and usage statistics
+- **Response time monitoring** across all interactions
+- **Model usage tracking** for optimization insights
 
 ### 🎯 **Flexible Interaction Modes**
-- **Interactive chat mode** for extended conversations
-- **Single prompt mode** for quick queries
-- **Command-line automation** support
-- **File-based AI operations**
+- **Interactive chat mode** for extended conversations with context
+- **Single prompt mode** for quick queries and automation
+- **Command-line argument support** for scripting
+- **File-based AI operations** for content generation
 
 ## 🚀 Quick Start
 
@@ -36,16 +36,23 @@ A powerful and intuitive command-line AI assistant that brings multiple AI model
 
 ### Installation
 
-1. **Clone or download** this repository
+1. **Clone or download** this repository:
+   ```bash
+   git clone https://github.com/CodemHax/CLIA
+   cd CLIA
+   ```
+
 2. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
+
 3. **Launch CLIA**:
    ```bash
    python ai.py
    ```
-4. **Enter your API key** when prompted (saved securely for future use)
+
+4. **Enter your API key** when prompted (automatically saved for future use)
 
 ## 🎮 Usage Examples
 
@@ -53,7 +60,7 @@ A powerful and intuitive command-line AI assistant that brings multiple AI model
 ```bash
 python ai.py
 ```
-Start an intelligent conversation with context-aware responses.
+Start an intelligent conversation with context-aware responses and full command access.
 
 ### Quick AI Query
 ```bash
@@ -65,7 +72,7 @@ python ai.py -p "Explain quantum computing in simple terms"
 python ai.py -m 1 -p "Write a Python function to sort a list"
 ```
 
-### List All Models
+### List All Available Models
 ```bash
 python ai.py --list-models
 ```
@@ -74,12 +81,12 @@ python ai.py --list-models
 
 | # | Model Name | Specialization | Best For |
 |---|------------|---------------|----------|
-| 1 | **DeepSeek R1** | Advanced reasoning & problem-solving | Complex analysis, mathematics |
-| 2 | **Llama 3.3** | General-purpose conversation | Versatile tasks, creative writing |
-| 3 | **Qwen3 32B FP8** | High-performance processing | Technical documentation, coding |
-| 4 | **AFM 4.5B** | Fast responses | Quick queries, simple tasks |
+| 1 | **DeepSeek R1 Distill** | Advanced reasoning & problem-solving | Complex analysis, mathematics, coding |
+| 2 | **DeepSeek R1** | Latest reasoning capabilities | Advanced problem solving, research |
+| 3 | **Llama 3.3** | General-purpose conversation | Versatile tasks, creative writing |
+| 4 | **AFM 4.5B** | Fast, efficient responses | Quick queries, simple tasks |
 | 5 | **EXAONE 3.5 32B** | Advanced language understanding | Natural conversation, explanations |
-| 6 | **EXAONE Deep 32B** | Deep learning capabilities | Research, complex reasoning |
+| 6 | **EXAONE Deep 32B** | Deep learning capabilities | Research, complex reasoning tasks |
 
 ## 🎛️ Interactive Commands
 
@@ -87,12 +94,12 @@ python ai.py --list-models
 | Command | Description | Example |
 |---------|-------------|---------|
 | `models` | Show all available AI models | `models` |
-| `change [1-6]` | Switch to specific model | `change 2` |
+| `switch [1-6]` | Switch to specific model | `switch 2` |
 | `stats` | Display detailed session statistics | `stats` |
-| `save` | Save conversation to JSON file | `save` |
+| `save [filename]` | Save conversation to JSON file | `save my_chat` |
 | `clear` | Clear current conversation history | `clear` |
 | `help` | Show comprehensive help menu | `help` |
-| `quit` | Exit CLIA gracefully | `quit` |
+| `quit` / `exit` / `q` | Exit CLIA gracefully | `quit` |
 
 ### File Operations
 | Command | Description | Example |
@@ -100,53 +107,42 @@ python ai.py --list-models
 | `read <file>` | Read file from workspace | `read script.py` |
 | `write <file>` | Create/edit file in workspace | `write app.py` |
 | `run <file>` | Execute Python file | `run my_script.py` |
-| `ls` | List all workspace files | `ls` |
+| `list` | List all workspace files | `list` |
 
 ### AI-Powered Creation
 | Command | Description | Example |
 |---------|-------------|---------|
-| `create <description>` | AI generates custom files | `create a web calculator` |
-| `create <type> [filename]` | Use predefined templates | `create game snake.py` |
-
-#### Available Templates
-- **valorant** - Valorant-related programs
-- **game** - Simple games and interactive apps
-- **web** - HTML/CSS/JavaScript web applications  
-- **api** - REST APIs and web services
-- **cli** - Command-line tools
-- **bot** - Discord/Telegram bots
-- **data** - Data analysis scripts
-- **ml** - Machine learning projects
-- **gui** - Desktop GUI applications
-- **utils** - Utility functions and helpers
+| `create` | AI generates custom files based on description | `create` |
+| `reset-key` | Reset stored API key | `reset-key` |
 
 ## 📁 Project Structure
 
 ```
 AiCli/
-├── ai.py                           # Main CLIA application
-├── requirements.txt                # Python dependencies
-├── README.md                      # Documentation (this file)
-├── .env                          # Secure API key storage (auto-created)
-├── workspace/                    # AI workspace directory
-│   ├── *.py                     # Python scripts
-│   └── ...                      # Other generated/user files
-└── conversation_*.json           # Saved conversations
+├── ai.py                         # Main CLIA application (clean, comment-free)
+├── requirements.txt              # Python dependencies
+├── README.md                     # This documentation
+├── .env                         # Secure API key storage (auto-created)
+├── workspace/                   # AI workspace directory
+│   ├── *.py                    # Python scripts
+│   ├── *.html                  # Web files
+│   └── ...                     # Other generated/user files
+└── conversation_*.json          # Saved conversation exports
 ```
 
 ## 🔧 Configuration & Setup
 
 ### API Key Management
-CLIA automatically handles API key storage:
-- **First run**: Prompts for API key and saves securely
-- **Subsequent runs**: Loads key automatically from `.env`
-- **Reset key**: Use `reset-key` command anytime
+CLIA automatically handles secure API key storage:
+- **First run**: Prompts for API key and saves to `.env` file
+- **Subsequent runs**: Automatically loads key from environment
+- **Reset key**: Use `reset-key` command anytime to update
 
 ### Model Customization
-Easily modify available models in `ai.py`:
+Easily modify available models by editing the `models` list in `ai.py`:
 ```python
 self.models = [
-    ("Model Name", "model-identifier"),
+    ("Custom Model Name", "model-identifier"),
     # Add your preferred models here
 ]
 ```
@@ -156,128 +152,118 @@ self.models = [
 ```bash
 python ai.py [OPTIONS]
 
-Arguments:
+Options:
   -p, --prompt TEXT       Execute single prompt and exit
-  -m, --model [1-6]      Select specific model (1-6)
-  --list-models          Display all models and exit
-  -h, --help            Show help message and exit
+  -m, --model [1-6]       Select specific model (1-6)
+  --list-models          Display all available models and exit
+  -h, --help             Show help message and exit
 ```
 
 ## 💡 Real-World Examples
 
-### Code Generation
+### AI-Powered Code Generation
 ```bash
-[DeepSeek R1] You: create a REST API for user management
+[DeepSeek R1 Distill]: create
+Describe the file you want to create: Create a REST API for user management with FastAPI
 🤖 AI is generating file content...
-✓ AI-generated file saved as: user_api.py
+Generation time: 2.35s
+Enter filename for the generated content: user_api.py
+Show generated content? (y/n): y
+Save to file? (y/n): y
+✓ File saved to workspace/user_api.py
 ```
 
-### Data Analysis
+### File Operations Workflow
 ```bash
-[DeepSeek R1] You: create data analysis script for CSV files
-🤖 Creating data program: Create a data analysis or processing script
-✓ File saved to workspace/data_analyzer.py
+[DeepSeek R1 Distill]: write hello.py
+Enter content for hello.py. End with 'EOF' on a new line.
+print("Hello, CLIA!")
+print("AI-powered development made easy!")
+EOF
+File saved to workspace/hello.py
+
+[DeepSeek R1 Distill]: run hello.py
+
+Output:
+Hello, CLIA!
+AI-powered development made easy!
 ```
 
 ### Quick Problem Solving
 ```bash
-python ai.py -p "How do I reverse a string in Python?"
-Using DeepSeek R1
-========================================
-🤖 [DeepSeek R1]: You can reverse a string in Python using...
+python ai.py -p "Optimize this Python code for better performance: [code snippet]"
+Using DeepSeek R1 Distill
+Thinking...
+Response time: 1.24s
+Here are several optimizations for your code...
 ```
 
 ## 🛠️ Advanced Features
 
-### Workspace Intelligence
-- **Context-aware responses** based on workspace files
-- **File content analysis** for better AI suggestions
-- **Automatic file management** in organized workspace
+### Smart Content Processing
+- **Automatic cleaning** of AI thinking tags (`<think>`, `<thought>`)
+- **Clean code generation** without markdown formatting
+- **File path comment removal** for production-ready output
+- **Streamlined responses** for better readability
 
 ### Session Analytics
 ```bash
-[DeepSeek R1] You: stats
+[DeepSeek R1 Distill]: stats
 
 📊 Session Statistics:
 ==============================
-Session Duration: 0:15:42
-Total Messages: 28
-Current Model: DeepSeek R1
-Conversation Length: 56 turns
+Session Duration: 0:25:18
+Total Messages: 42
+Current Model: DeepSeek R1 Distill
+Conversation Length: 84 turns
 
 📈 Model Usage:
-  • DeepSeek R1: 15 messages
-  • Llama 3.3: 8 messages
-  • Qwen3 32B FP8: 5 messages
-```
-
-### Robust Error Handling
-- **Network resilience** with automatic retry
-- **API validation** and helpful error messages
-- **Graceful interruption** handling (Ctrl+C)
-- **Input sanitization** and validation
-
-## 🔒 Security & Privacy
-
-- **Secure API key storage** using environment variables
-- **No conversation data** sent to external servers
-- **Local file operations** only
-- **Industry-standard practices** for credential management
-
-## 🤝 Contributing
-
-We welcome contributions! Here's how to get started:
-
-1. **Fork** the repository
-2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
-3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
-4. **Push** to the branch (`git push origin feature/amazing-feature`)
-5. **Open** a Pull Request
-
-### Development Setup
-```bash
-git clone <your-fork>
-cd CLIA
-pip install -r requirements.txt
-python ai.py --help
+  • DeepSeek R1 Distill: 28 messages
+  • Llama 3.3: 10 messages
+  • AFM 4.5B: 4 messages
 ```
 
 ## 📜 License
 
-This project is open source and available under the MIT License. Feel free to use, modify, and distribute.
+This project is open source and available under the **MIT License**. Feel free to use, modify, and distribute according to the license terms.
 
 ## 🆘 Troubleshooting
 
-### Common Issues
+### Common Issues & Solutions
 
 **"No API key" Error**
 ```bash
-# Solution: Reset your API key
+# Reset your API key
 python ai.py
-[CLIA] You: reset-key
+[Model]: reset-key
+Enter your Together AI API key: [paste-key-here]
 ```
 
 **Model Not Responding**
-- Check internet connection
-- Verify API key validity
-- Try switching models with `change [1-6]`
+- Verify internet connection stability
+- Check API key validity at https://api.together.xyz/
+- Try switching models: `switch [1-6]`
+- Check Together AI service status
 
 **File Operations Failing**
-- Ensure workspace directory exists
-- Check file permissions
-- Verify file paths are correct
+- Ensure Python has write permissions in project directory
+- Verify workspace directory exists (auto-created on first run)
+- Check file paths are relative to workspace
+- Confirm Python files have valid syntax for execution
+
+**Performance Issues**
+- Try faster models (AFM 4.5B) for simple queries
+- Use `clear` command to reset conversation context
+- Monitor response times with built-in timing
 
 ### Getting Support
 
-1. **Check error messages** carefully - they often contain solutions
-2. **Try different models** - some excel at specific tasks
-3. **Use `help` command** for quick reference
-4. **Restart CLIA** if issues persist
+1. **Check error messages** - they often contain specific solutions
+2. **Try different models** - each excels at different task types
+3. **Use `help` command** for quick command reference
+4. **Review session stats** to identify usage patterns
+5. **Restart CLIA** if persistent issues occur
 
-## 🔗 Useful Links
 
-- **[Together AI Platform](https://api.together.xyz/)** - Get your API key
-- **[Python Requests Docs](https://docs.python-requests.org/)** - HTTP library documentation
-- **[OpenAI API Reference](https://platform.openai.com/docs/api-reference)** - API format reference
 
-> **Star this project** if you find it useful! Your support helps us improve. 🌟
+
